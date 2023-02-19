@@ -21,12 +21,25 @@ class App extends React.Component {
   handleMouseOver(event) {
     // console.log(event.pageX);
   }
+  handleOnChangeInput = (event) => {
+    this.setState({
+      name: event.target.value
+    })
+  }
+  handleOnSubmit = (event) => {
+    //ngan chan su kien reload lai trang
+    event.preventDefault();
+    console.log(this.state);
+  }
   render() {
     return (
       <div>
-          My name is {this.state.name} and I'm from {this.state.age}    
-          <button onClick={(event) => {this.handleClick(event)}}>Click me</button>
-          <button onMouseOver={this.handleMouseOver}>Hover me</button>
+          My name is {this.state.name} and I'm from {this.state.age}
+          <form onSubmit={(event) => {this.handleOnSubmit(event)}}>
+            <input type="text"
+            onChange={(event) => {this.handleOnChangeInput(event)}}/>
+            <button>Submit</button>
+          </form>
       </div>
     );
   }
