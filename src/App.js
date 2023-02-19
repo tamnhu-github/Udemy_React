@@ -10,17 +10,22 @@ class App extends React.Component {
     address: 'Ha Noi',
     age: 20
   }
-  handleClick() {
-    console.log('My name is ', this.state.name);
+  handleClick(event) {
+    console.log('My name is ', this.state.name, 'I\'m', this.state.age);
+    //merge state => React class
+    this.setState ({
+      name: 'New Name',
+      age: Math.floor((Math.random() * 100) + 1)
+    })
   }
   handleMouseOver(event) {
-    console.log(event.pageX);
+    // console.log(event.pageX);
   }
   render() {
     return (
       <div>
-          My name is {this.state.name} and I'm from {this.state.address}    
-          <button onClick={this.handleClick}>Click me</button>
+          My name is {this.state.name} and I'm from {this.state.age}    
+          <button onClick={(event) => {this.handleClick(event)}}>Click me</button>
           <button onMouseOver={this.handleMouseOver}>Hover me</button>
       </div>
     );
