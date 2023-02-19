@@ -10,10 +10,18 @@ class App extends React.Component {
     address: 'Ha Noi',
     age: 20
   }
+  handleClick() {
+    console.log('My name is ', this.state.name);
+  }
+  handleMouseOver(event) {
+    console.log(event.pageX);
+  }
   render() {
     return (
       <div>
-          My name is {this.state.name} and I'm from {this.state.address}
+          My name is {this.state.name} and I'm from {this.state.address}    
+          <button onClick={this.handleClick}>Click me</button>
+          <button onMouseOver={this.handleMouseOver}>Hover me</button>
       </div>
     );
   }
