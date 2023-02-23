@@ -2,7 +2,7 @@
 //function component
 import React from "react";
 import DisplayInfor from "./DisplayInfor";
-import UserInfor from "./UserInfor";
+import AddUserInfor from "./AddUserInfor";
 class MyComponent extends React.Component {
     state = {
         listUsers: [
@@ -11,13 +11,33 @@ class MyComponent extends React.Component {
             {id: 3, name: 'Thuy Van', age: 69}
         ]
     }
+    handleAddNewUser = (userObj) => {
+        console.log(userObj);
+        this.setState({
+            listUsers: [userObj, ...this.state.listUsers]
+        })
+    }
+    handleDeleteUser = (userId) => {
+        let listUsersClone = [...this.state.listUsers];
+        listUsersClone = listUsersClone.filter((item) => item.id !== userId);
+        this.setState({
+            listUsers: listUsersClone
+        })
+    }
     render() {
         return (
-            <div>
-            <UserInfor/>
-            <br/><br/>
-            <DisplayInfor listUsers={this.state.listUsers}/>
-            </div>
+            //fragment
+            <>
+                <div className="a">
+                <AddUserInfor handleAddNewUser={this.handleAddNewUser}/>
+                <br/><br/>
+                <DisplayInfor 
+                listUsers={this.state.listUsers}
+                handleDeleteUser = {this.handleDeleteUser}
+                />
+                </div>
+                <div className="b"></div>
+            </>//fragment
         );
     }
 }

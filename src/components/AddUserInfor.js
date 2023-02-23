@@ -1,9 +1,9 @@
 import React from "react";
-class UserInfor extends React.Component {
+class AddUserInfor extends React.Component {
     state = {
-        name: 'ABC',
+        name: '',
         address: 'Ha Noi',
-        age: 20
+        age: ''
     }
     handleOnChangeInput = (event) => {
         this.setState({
@@ -18,7 +18,12 @@ class UserInfor extends React.Component {
     handleOnSubmit = (event) => {
         //ngan chan su kien reload lai trang
         event.preventDefault();
-        console.log(this.state);
+        // console.log(this.state);
+        this.props.handleAddNewUser({
+            id: Math.floor((Math.random()*100)+1) + '-random',
+            name: this.state.name,
+            age: this.state.age
+        });
     }
     render() {
         return (
@@ -33,10 +38,10 @@ class UserInfor extends React.Component {
               <input value={this.state.age}
               type="text"
               onChange={(event) => {this.handelOnChangeAge(event)}}/>
-              <button>Submit</button>
+              <button style={{cursor: 'pointer'}}>Submit</button>
             </form>
             </div>
         )
     }
 }
-export default UserInfor;
+export default AddUserInfor;
