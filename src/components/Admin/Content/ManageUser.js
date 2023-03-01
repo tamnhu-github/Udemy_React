@@ -20,7 +20,8 @@ const ManageUser = (props) => {
                 </div>
                 <ModalCreateUser 
                     show={showModalCreateUser}
-                    setShow={setShowModalCreateUser}/>
+                    setShow={setShowModalCreateUser}
+                />
             </div>
         </div>
     )
