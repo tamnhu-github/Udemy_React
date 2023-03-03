@@ -110,7 +110,7 @@ const ModalCreateUser = (props) => {
                     <label className="form-label label-upload" htmlFor='labelUpload'>
                       <BsFillPlusCircleFill/>
                       Upload file image</label>
-                    <input type='file' hidden id='labelUpload' value={image}
+                    <input type='file' hidden id='labelUpload'
                       onChange={(event) => handleUploadImage(event)}
                     />
                 </div>

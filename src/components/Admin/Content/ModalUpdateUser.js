@@ -33,19 +33,19 @@ const ModalUpdateUser = (props) => {
         setRole(dataUpdate.role);
         setImage('');
         if(dataUpdate.image) {
-            setPreviewImage(`data:image/jpeg;base64,${dataUpdate.image}`);
+          setPreviewImage(`data:image/png;base64,${dataUpdate.image}`);
         }
     }
-  }, [dataUpdate])
+  },[dataUpdate])
   const handleUploadImage = (event) => {
     //user upload file moi cap nhat anh
     if (event.target && event.target.files && event.target.files[0]) {
       setPreviewImage(URL.createObjectURL(event.target.files[0]));
       setImage(event.target.files[0]);
     }
-    // else {
+     else {
     //   setPreviewImage('');
-    // }
+     }
   }
   const validateEmail = (email) => {
     return String(email)
@@ -76,7 +76,7 @@ const ModalUpdateUser = (props) => {
       toast.error(data.EM);
     }
   }
-
+  // console.log(props.dataUpdate);
   return (
     <>
       {/* <Button variant="primary" onClick={handleShow}>
@@ -125,7 +125,7 @@ const ModalUpdateUser = (props) => {
                     <label className="form-label label-upload" htmlFor='labelUpload'>
                       <BsFillPlusCircleFill/>
                       Upload file image</label>
-                    <input type='file' hidden id='labelUpload' value={image}
+                    <input type='file' hidden id='labelUpload'
                       onChange={(event) => handleUploadImage(event)}
                     />
                 </div>
