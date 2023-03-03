@@ -15,14 +15,14 @@ const ModalUpdateUser = (props) => {
     setPass('');
     setUsername('');
     setRole('USER');
-    setimage('');
+    setImage('');
     setPreviewImage('');
   }
   const [email, setEmail] = useState('');
   const [password, setPass] = useState('');
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('USER');
-  const [image, setimage] = useState('');
+  const [image, setImage] = useState('');
   const [previewImage, setPreviewImage] = useState('');
   useEffect(() => {
     //check neu data ko rong
@@ -31,7 +31,7 @@ const ModalUpdateUser = (props) => {
         setEmail(dataUpdate.email);
         setUsername(dataUpdate.username);
         setRole(dataUpdate.role);
-        setimage('');
+        setImage('');
         if(dataUpdate.image) {
             setPreviewImage(`data:image/jpeg;base64,${dataUpdate.image}`);
         }
@@ -41,7 +41,7 @@ const ModalUpdateUser = (props) => {
     //user upload file moi cap nhat anh
     if (event.target && event.target.files && event.target.files[0]) {
       setPreviewImage(URL.createObjectURL(event.target.files[0]));
-      setimage(event.target.files[0]);
+      setImage(event.target.files[0]);
     }
     // else {
     //   setPreviewImage('');
