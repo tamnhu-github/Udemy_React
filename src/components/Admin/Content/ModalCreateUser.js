@@ -14,20 +14,20 @@ const ModalCreateUser = (props) => {
     setPass('');
     setUsername('');
     setRole('USER');
-    setimage('');
+    setImage('');
     setPreviewImage('');
   }
   const [email, setEmail] = useState('');
   const [password, setPass] = useState('');
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('USER');
-  const [image, setimage] = useState('');
+  const [image, setImage] = useState('');
   const [previewImage, setPreviewImage] = useState('')
   const handleUploadImage = (event) => {
     //user upload file moi cap nhat anh
     if (event.target && event.target.files && event.target.files[0]) {
       setPreviewImage(URL.createObjectURL(event.target.files[0]));
-      setimage(event.target.files[0]);
+      setImage(event.target.files[0]);
     }
     // else {
     //   setPreviewImage('');
@@ -116,7 +116,7 @@ const ModalCreateUser = (props) => {
                 </div>
                 <div className='col-md-12 image-preview'> 
                   {previewImage 
-                  ? <image src={previewImage}></image>
+                  ? <img src={previewImage}></img>
                   : <span>Preview Image</span>
                   }
                 </div>
