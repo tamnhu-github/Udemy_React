@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {BsFillPlusCircleFill} from 'react-icons/bs';
 import { toast } from 'react-toastify';
-import { postCreateNewUser } from '../../../services/apiService';
+import { putUpdateUser } from '../../../services/apiService';
 import _ from 'lodash';
 
 const ModalUpdateUser = (props) => {
@@ -17,6 +17,7 @@ const ModalUpdateUser = (props) => {
     setRole('USER');
     setImage('');
     setPreviewImage('');
+    props.resetUpdateData();
   }
   const [email, setEmail] = useState('');
   const [password, setPass] = useState('');
@@ -61,12 +62,8 @@ const ModalUpdateUser = (props) => {
       toast.error('Invalid email');
       return;
     }
-    if(!password) { 
-      toast.error('Invalid password');
-      return;
-    }
     //call apis
-    let data = await postCreateNewUser(email, password, username, role, image);
+    let data = await putUpdateUser(dataUpdate.id, username, role, image);
     if(data && data.EC === 0) {
       toast.success(data.EM);
       handleClose();
@@ -131,7 +128,7 @@ const ModalUpdateUser = (props) => {
                 </div>
                 <div className='col-md-12 image-preview'> 
                   {previewImage 
-                  ? <image src={previewImage}></image>
+                  ? <img src={previewImage}></img>
                   : <span>Preview Image</span>
                   }
                 </div>
