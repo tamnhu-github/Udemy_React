@@ -86,7 +86,7 @@ const ModalUpdateUser = (props) => {
         size="xl"
         //nhan close hoac X moi co the tat modal
         backdrop='static'
-        className='modal-add-user'
+        className='modal-add-view-user'
       >
         <Modal.Header closeButton>
           <Modal.Title>Update a user</Modal.Title>

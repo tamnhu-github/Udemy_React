@@ -1,8 +1,5 @@
 const TableUser = (props) => {
    const {listUsers} = props;
-    //componentDidMount
-    //co data, co DOM roi moi call API
- 
     return(
         <>
             <table className="table table-hover table-bordered">
@@ -25,13 +22,17 @@ const TableUser = (props) => {
                                 <td>{item.email}</td>
                                 <td>{item.role}</td>
                                 <td>
-                                    <button className="btn btn-info">View</button>
+                                    <button className="btn btn-info"
+                                        onClick={() => props.handleClickBtnView(item)}
+                                    >View</button>
                                     <button 
                                         onClick={() => props.handleClickBtnUpdate(item)}
                                         className="btn btn-warning mx-3">
                                         Update
                                     </button>
-                                    <button className="btn btn-danger">Delete</button>
+                                    <button className="btn btn-danger"
+                                        onClick={() => props.handleClickBtnDelete(item)}
+                                    >Delete</button>
 
                                 </td>
                             </tr>
