@@ -27,4 +27,20 @@ const deleteUser = (userId) => {
 const getUserWithPaginate = (page, limit) => {
     return axios.get(`api/v1/participant?page=${page}&limit=${limit}`);
 }
-export {postCreateNewUser, getAllUsers, putUpdateUser, deleteUser, getUserWithPaginate};
+const postLogin = (email, password) => {
+    return axios.post('api/v1/login', {email, password});
+    //form urlencoded: truyen data len theo dang object
+    //dinh nghia 1 bien ob ko co key -> lay ten cua bien truyen vao lam key luon
+}
+// const postLogin2 = (userEmail, userPassword) => {
+//     return axios.post('api/v1/login', {email: userEmail, password: userPassword});
+// }
+export 
+{
+    postCreateNewUser, 
+    getAllUsers, 
+    putUpdateUser, 
+    deleteUser, 
+    getUserWithPaginate, 
+    postLogin
+};

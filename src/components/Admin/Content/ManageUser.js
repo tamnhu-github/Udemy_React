@@ -8,8 +8,7 @@ import ModalUpdateUser from "./ModalUpdateUser";
 import ModalViewUser from "./ModalViewUser";
 import ModalDeleteUser from "./ModalDeleteUser";
 import TableUserPaginate from "./TableUserPaginate";
-import { set } from "lodash";
-
+// import { set } from "lodash";
 const ManageUser = (props) => {
     const LIMIT_USER = 3;
     const [pageCount, setPageCount] = useState(0);
@@ -34,7 +33,7 @@ const ManageUser = (props) => {
     const fetchListUsersWithPaginate = async(page) => {
         let res = await getUserWithPaginate(page, LIMIT_USER);
         if(res && res.EC === 0) {
-            console.log(res.DT);
+            // console.log(res.DT);
             setListUsers(res.DT.users);
             setPageCount(res.DT.totalPages);
         }
