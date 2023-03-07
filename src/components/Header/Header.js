@@ -10,7 +10,7 @@ const Header = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         {/* <Navbar.Brand href="#home">Hỏi Dân IT</Navbar.Brand> */}
-        <NavLink to="/" className='navbar-brand'>Hỏi Dân IT</NavLink>
+        <NavLink to="/" className='navbar-brand fw-bolder'>Hỏi Dân IT</NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
